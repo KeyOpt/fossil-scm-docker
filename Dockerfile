@@ -9,8 +9,8 @@ RUN     apk update                                                              
         curl gcc make tcl                                                                               \
         musl-dev                                                                                        \
         openssl-dev zlib-dev                                                                            \
-        openssl-libs-static zlib-static                                                                 
-        && if [ "$VERSION" = "latest" ] ; then                                                             \
+        openssl-libs-static zlib-static                                                                 \ 
+        && if [ "$VERSION" = "latest" ] ; then                                                          \
         curl                                                                                            \ 
         "https://fossil-scm.org/home/tarball/fossil-src.tar.gz?name=fossil-src&uuid=trunk"              \
         -o fossil-src.tar.gz                                                                            \
