@@ -10,17 +10,17 @@ RUN     apk update                                                              
         musl-dev                                                                                        \
         openssl-dev zlib-dev                                                                            \
         openssl-libs-static zlib-static                                                                 
-RUN     if [ "$VERSION" = "latest" ] ; then                                                          \
+        && if [ "$VERSION" = "latest" ] ; then                                                             \
         curl                                                                                            \ 
         "https://fossil-scm.org/home/tarball/fossil-src.tar.gz?name=fossil-src&uuid=trunk"              \
         -o fossil-src.tar.gz                                                                            \
-        && tar xfvz fossil-src.tar.gz ;                                                                       \
+        && tar xfvz fossil-src.tar.gz ;                                                                 \
         else                                                                                            \
         curl                                                                                            \
-        "https://fossil-scm.org/home/uv/fossil-src-${VERSION}.tar.gz"                                        \
+        "https://fossil-scm.org/home/uv/fossil-src-${VERSION}.tar.gz"                                   \
         -o fossil-src.tar.gz                                                                            \
-        && tar xfvz fossil-src.tar.gz                                                                        \
-        && mv fossil-${VERSION} fossil-src ;                                                                   \
+        && tar xfvz fossil-src.tar.gz                                                                   \
+        && mv fossil-${VERSION} fossil-src ;                                                            \
         fi                                                                                              \
         && cd fossil-src                                                                                \
         && ./configure                                                                                  \
