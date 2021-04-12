@@ -3,6 +3,8 @@
 # FROM    alpine:edge
 FROM    alpine:3.13
 ARG	VERSION=latest
+LABEL   version="1.0.0"
+LABEL   maintainer="Dustin Reynolds @ Electric-Toast.com"
 RUN     apk update                                                                                      \
         && apk upgrade                                                                                  \
         && apk add --no-cache --virtual .build-deps                                                     \
