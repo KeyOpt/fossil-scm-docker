@@ -7,6 +7,9 @@ build:
 buildx:
 	docker buildx build --no-cache --platform linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/arm/v6 --build-arg VERSION=$(VERSION) -t keyopt/fossil-scm:$(VERSION) --push .
 
+buildx-quay:
+	docker buildx build --no-cache --platform linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/arm/v6 --build-arg VERSION=$(VERSION) -t quay.io/keyopt/fossil-scm:$(VERSION) --push .
+
 push:
 	docker push keyopt/fossil-scm:$(VERSION)
 
